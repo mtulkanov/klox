@@ -1,0 +1,17 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# IDEA user-specific settings
+workspace.xml
+usage.statistics.xml
+shelf
+
+*.iml
+.idea/modules.xml
+gradle.xml
+.idea/libraries
+
+sonarlint
