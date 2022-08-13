@@ -20,11 +20,9 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    // Use the Kotlin test library.
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
-
-    // Use the Kotlin JUnit integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    val kotestVersion = "5.4.2"
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
 }
 
 application {
@@ -36,4 +34,8 @@ tasks.withType<KotlinCompile>().all {
     kotlinOptions {
         jvmTarget = "18"
     }
+}
+
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }

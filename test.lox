@@ -1,1 +1,4 @@
-Hello World!
+/*
+ * Some class
+ */
+class MyClass {} ?
