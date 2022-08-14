@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -6,6 +7,8 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -27,7 +30,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("klox.AppKt")
+    mainClass.set("klox.LoxKt")
 }
 
 tasks.withType<KotlinCompile>().all {
@@ -38,4 +41,9 @@ tasks.withType<KotlinCompile>().all {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+}
+
+
+tasks.withType<ShadowJar>().configureEach {
+    archiveClassifier.set("")
 }

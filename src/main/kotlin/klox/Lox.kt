@@ -6,7 +6,7 @@ import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     if (args.size > 1) {
-        println("Usage: jlox [script]")
+        println("Usage: jlox [full path to script file]")
         exitProcess(64)
     } else if (args.size == 1) {
         Lox().runFile(args[0])
@@ -28,7 +28,12 @@ class Lox {
     }
 
     fun runFile(filename: String) {
-        val source = File(filename).readText(StandardCharsets.UTF_8)
+        val file = File(filename)
+        if (!file.exists()) {
+            System.err.println("There is no such file: $filename")
+            exitProcess(66)
+        }
+        val source = file.readText(StandardCharsets.UTF_8)
         runSource(source)
         if (hadError) exitProcess(65)
     }
