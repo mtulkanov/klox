@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
-    <file url="PROJECT" charset="windows-1251" />
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/build.gradle.kts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/klox/AstPrinter.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/klox/Expr.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/klox/Lox.kt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin/klox/Scanner.kt" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
