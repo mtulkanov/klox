@@ -39,13 +39,20 @@ class Lox {
     }
 
     private fun runSource(source: String) {
-        val (tokens, errors) = Scanner(source).scanTokens()
-        if (errors.isNotEmpty()) {
-            errors.forEach { scannerError -> error(scannerError.line, scannerError.message) }
+        val (tokens, scannerErrors) = Scanner(source).scanTokens()
+        if (scannerErrors.isNotEmpty()) {
+            scannerErrors.forEach { scannerError -> error(scannerError.line, scannerError.message) }
             hadError = true
             return
         }
-        for (token in tokens) println(token)
+        tokens.forEach { println(it) }
+        val (expr, parserErrors) = Parser(tokens).parse()
+        if (parserErrors.isNotEmpty()) {
+            parserErrors.forEach { parserError -> error(parserError.token.line, "${parserError.token}: ${parserError.message}") }
+            hadError = true
+            return
+        }
+        if (expr != null) printAst(expr)
     }
 
     private fun error(line: Int, message: String, where: String = "") {

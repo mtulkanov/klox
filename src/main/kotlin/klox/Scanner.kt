@@ -2,9 +2,8 @@ package klox
 
 class Scanner(private val source: String) {
 
-    val errors: MutableList<ScannerError> = mutableListOf()
-
-    private val tokens: MutableList<Token> = mutableListOf()
+    private val errors = mutableListOf<ScannerError>()
+    private val tokens = mutableListOf<Token>()
     private var start = 0
     private var current = 0
     private var line = 1

@@ -8,7 +8,7 @@ This is my attempt to write a Lox language interpreter in Kotlin by following [C
 - [ ] Parser.
 
 ## Prerequisites
-Have JDK 18 in $PATH.
+Have JDK 17 in $PATH.
 
 ## How to build
 ```

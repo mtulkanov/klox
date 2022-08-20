@@ -29,7 +29,7 @@ private fun astToString(expr: Expr, builder: StringBuilder, prefix: String) {
             builder
                 .appendLine("()")
                 .append("$prefix└── ")
-            astToString(expr.expr, builder, "    ")
+            astToString(expr.expr, builder, "$prefix    ")
         }
     }
 }
